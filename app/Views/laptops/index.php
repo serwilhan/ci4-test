@@ -10,17 +10,26 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Cover</th>
+                        <th scope="col">Merk</th>
                         <th scope="col">Type</th>
+                        <th scope="col">Price</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
+                    <?php $i = 1; ?>
+                    <?php foreach ($laptop as $l) : ?>
+                        <tr>
+                            <th scope="row"><?= $i++; ?></th>
+                            <td><img class="cover" src="<?= base_url("images/" . $l['cover']); ?>" alt=""></td>
+                            <td><?= $l['merk']; ?></td>
+                            <td><?= $l['type']; ?></td>
+                            <td><?= $l['price']; ?></td>
+                            <td>
+                                <a href="<?= base_url("laptops/" . $l['slug']); ?>" class="btn btn-success">Detail</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
